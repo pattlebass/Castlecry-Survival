@@ -2,29 +2,178 @@
 
 [ext_resource path="res://menus/lobby.gd" type="Script" id=1]
 
-[node name="lobby" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="lobby" type="CanvasLayer"]
 script = ExtResource( 1 )
+
+[node name="Panel_player" type="Panel" parent="."]
+margin_left = 410.0
+margin_top = 68.8249
+margin_right = 593.0
+margin_bottom = 172.825
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="host" type="Button" parent="."]
-margin_left = 267.981
-margin_top = 314.983
-margin_right = 381.981
-margin_bottom = 345.983
-text = "Create server"
+[node name="Label" type="Label" parent="Panel_player"]
+margin_left = 14.25
+margin_top = 37.0648
+margin_right = 56.25
+margin_bottom = 51.0648
+text = "Name:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="join" type="Button" parent="."]
-margin_left = 565.094
-margin_top = 312.527
-margin_right = 679.094
-margin_bottom = 343.527
+[node name="Label2" type="Label" parent="Panel_player"]
+margin_left = 72.0
+margin_top = 9.43112
+margin_right = 114.0
+margin_bottom = 23.4311
+text = "Player"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit_Name" type="LineEdit" parent="Panel_player"]
+margin_left = 14.25
+margin_top = 59.1844
+margin_right = 162.25
+margin_bottom = 83.1844
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel_server" type="Panel" parent="."]
+margin_left = 410.0
+margin_top = 188.322
+margin_right = 593.0
+margin_bottom = 337.322
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="host" type="Button" parent="Panel_server"]
+margin_left = 14.0
+margin_top = 117.0
+margin_right = 74.0
+margin_bottom = 137.0
+text = "Create"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel_server"]
+margin_left = 49.1669
+margin_top = 9.7767
+margin_right = 134.167
+margin_bottom = 23.7767
+text = "Create server"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Panel_server"]
+margin_left = 14.0
+margin_top = 37.4673
+margin_right = 54.0
+margin_bottom = 51.4673
+text = "Port"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Panel_server"]
+margin_left = 88.25
+margin_top = 37.4673
+margin_right = 164.25
+margin_bottom = 51.4673
+text = "Max players"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpinBox_max_players" type="SpinBox" parent="Panel_server"]
+margin_left = 88.0
+margin_top = 51.0
+margin_right = 164.0
+margin_bottom = 75.0
+min_value = 1.0
+max_value = 20.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit_port_host" type="LineEdit" parent="Panel_server"]
+margin_left = 14.0
+margin_top = 51.4673
+margin_right = 72.0
+margin_bottom = 75.4673
+text = "5555"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel_join" type="Panel" parent="."]
+margin_left = 410.0
+margin_top = 358.857
+margin_right = 593.0
+margin_bottom = 507.857
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel_join"]
+margin_left = 74.0
+margin_top = 11.441
+margin_right = 97.0
+margin_bottom = 25.441
 text = "Join"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="host" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="join" to="." method="_on_join_pressed"]
+
+[node name="Label2" type="Label" parent="Panel_join"]
+margin_left = 14.0
+margin_top = 36.8671
+margin_right = 54.0
+margin_bottom = 50.8671
+text = "IP"
+
+[node name="Label3" type="Label" parent="Panel_join"]
+margin_left = 14.0
+margin_top = 93.8671
+margin_right = 54.0
+margin_bottom = 107.867
+text = "Port"
+
+[node name="LineEdit_IP" type="LineEdit" parent="Panel_join"]
+margin_left = 14.0
+margin_top = 59.0
+margin_right = 134.0
+margin_bottom = 83.0
+text = "127.0.0.1"
+
+[node name="LineEdit_Port_join" type="LineEdit" parent="Panel_join"]
+margin_left = 14.25
+margin_top = 107.867
+margin_right = 72.25
+margin_bottom = 131.867
+text = "5555"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="join" type="Button" parent="Panel_join"]
+margin_left = 134.0
+margin_top = 107.867
+margin_right = 169.0
+margin_bottom = 127.867
+text = "Join"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Panel_server/host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Panel_join/join" to="." method="_on_join_pressed"]
