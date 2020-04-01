@@ -57,11 +57,6 @@ func _on_player_connected(id):
 	print("Player connected: " + str(id))
 
 
-# Everyone gets notified whenever someone disconnects from the server
-func _on_player_disconnected(id):
-	print("Player disconnected: " + str(id))
-
-
 # Peer trying to connect to server is notified on success
 func _on_connected_to_server():
 	emit_signal("join_success")
@@ -79,6 +74,25 @@ func _on_connection_failed():
 	get_tree().set_network_peer(null)
 
 
-# Peer is notified when disconnected from server
+remote func unregister_player(id):
+	print("Removing player ", players[id].name, " from internal table")
+	# Remove the player from the list
+	players.erase(id)
+	# And notify the list has been changed
+	emit_signal("player_list_changed")
+
+func _on_player_disconnected(id):
+	print("Player ", players[id].name, " disconnected from server")
+	# Update the player tables
+	if (get_tree().is_network_server()):
+		# Unregister the player from the server's list
+		unregister_player(id)
+		# Then on all remaining peers
+		rpc("unregister_player", id)
+		
 func _on_disconnected_from_server():
 	print("Disconnected from server")
+	# Clear the internal player list
+	players.clear()
+	# Reset the player info network ID
+	Gamestate.player_info.net_id = 1
