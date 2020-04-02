@@ -1,6 +1,9 @@
 extends KinematicBody2D
 
+var max_health = 100
+var health = 100
 
+#Movement
 var velocity = Vector2()
 var speed = 500
 var acceleration = 0.2
@@ -8,10 +11,13 @@ var acceleration = 0.2
 var desired_velocity
 var move_direction
 
+func _ready():
+	#global.player = self
+	pass
+
 func _physics_process(delta):
-	if is_network_master():
-		movement()
-		
+	movement()
+	
 func movement():
 	move_direction = Vector2.ZERO
 	move_direction.x = -int(Input.is_action_pressed("left")) + int(Input.is_action_pressed("right"))

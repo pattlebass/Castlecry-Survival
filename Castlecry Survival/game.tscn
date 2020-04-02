@@ -1,23 +1,43 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://game.gd" type="Script" id=1]
+[ext_resource path="res://assets/player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/weapons/pistol/pistol.tscn" type="PackedScene" id=2]
+[ext_resource path="res://menus/HUD.gd" type="Script" id=3]
+[ext_resource path="res://game.gd" type="Script" id=4]
 
 [node name="game" type="Node2D"]
-position = Vector2( 524, 250 )
-script = ExtResource( 1 )
+script = ExtResource( 4 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 3 )
 
-[node name="Panel_Player_List" type="Panel" parent="HUD"]
-margin_right = 258.0
-margin_bottom = 103.0
+[node name="Panel" type="Panel" parent="HUD"]
+margin_right = 192.0
+margin_bottom = 48.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/Panel_Player_List"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Label" type="Label" parent="HUD/Panel"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 50.0
+margin_bottom = 22.0
+text = "Health"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HealthBar" type="ProgressBar" parent="HUD/Panel"]
+margin_left = 8.0
+margin_top = 24.0
+margin_right = 184.0
+margin_bottom = 38.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 507.069, 257.236 )
+
+[node name="pistol" parent="player" instance=ExtResource( 2 )]
