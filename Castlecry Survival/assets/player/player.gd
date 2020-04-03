@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+var inventory
+
 var max_health = 100
 var health = 100
 
