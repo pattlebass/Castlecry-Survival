@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var inventory
+onready var inventory = get_parent().get_node("HUD/inventory")
 
 var max_health = 100
 var health = 100
@@ -15,7 +15,8 @@ var move_direction
 
 func _ready():
 	#global.player = self
-	pass
+	$item_area.connect("body_entered", inventory, "_on_body_entered")
+	$item_area.connect("body_exited", inventory, "_on_body_exited")
 
 func _physics_process(delta):
 	movement()

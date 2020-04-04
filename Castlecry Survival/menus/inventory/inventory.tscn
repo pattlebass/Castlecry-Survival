@@ -4,8 +4,6 @@
 [ext_resource path="res://menus/inventory/item_inventory.tscn" type="PackedScene" id=2]
 
 [node name="inventory" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -19,19 +17,60 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 282.0
-margin_right = 742.0
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 230.0
+margin_right = 330.0
 margin_bottom = 600.0
 alignment = 1
 
-[node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer"]
+[node name="PanelGround" type="Panel" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 150.0
+margin_right = 100.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 100, 300 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2/PanelGround"]
+margin_right = 102.0
+margin_bottom = 300.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/PanelGround/VBoxContainer2"]
+margin_right = 102.0
+margin_bottom = 14.0
+text = "Items ground"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="HBoxContainer/VBoxContainer2/PanelGround/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 102.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 334.0
+margin_right = 794.0
+margin_bottom = 600.0
+alignment = 1
+
+[node name="PanelInventory" type="Panel" parent="HBoxContainer/VBoxContainer"]
 margin_top = 150.0
 margin_right = 460.0
 margin_bottom = 450.0
 rect_min_size = Vector2( 460, 300 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/PanelInventory"]
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 450.0
@@ -43,7 +82,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/PanelInventory/VBoxContainer"]
 margin_right = 440.0
 margin_bottom = 14.0
 text = "Inventory "
@@ -51,24 +90,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="position" type="Control" parent="HBoxContainer/VBoxContainer/Panel/VBoxContainer"]
+[node name="position" type="Control" parent="HBoxContainer/VBoxContainer/PanelInventory/VBoxContainer"]
 margin_top = 29.0
 margin_right = 440.0
 margin_bottom = 29.0
 
 [node name="item_inventory" parent="." instance=ExtResource( 2 )]
-
-[node name="item_inventory2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 168.421, 16.6205 )
-
-[node name="item_inventory3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 40, 110.804 )
-
-[node name="item_inventory4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 116.454, 262.604 )
-
-[node name="item_inventory5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 565.209, 80.8866 )
-
-[node name="item_inventory6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 818.949, 132.964 )
+[connection signal="item_activated" from="HBoxContainer/VBoxContainer2/PanelGround/VBoxContainer2/ItemList" to="." method="_on_ItemList_item_activated"]
+[connection signal="item_selected" from="HBoxContainer/VBoxContainer2/PanelGround/VBoxContainer2/ItemList" to="." method="_on_ItemList_item_selected"]

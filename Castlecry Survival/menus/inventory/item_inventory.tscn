@@ -11,6 +11,7 @@ script = ExtResource( 2 )
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
+shortcut_in_tooltip = false
 texture_normal = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
