@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grass.jpg-0ba16f44b526d55533634fdbc2c9d424.stex"
+path="res://.import/Type 97 grenade.png-a174d4b3b0f929e25644c68d3c11069f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/grass.jpg"
-dest_files=[ "res://.import/grass.jpg-0ba16f44b526d55533634fdbc2c9d424.stex" ]
+source_file="res://assets/WWIIweapons/Type 97 grenade.png"
+dest_files=[ "res://.import/Type 97 grenade.png-a174d4b3b0f929e25644c68d3c11069f.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false

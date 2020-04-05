@@ -5,6 +5,10 @@ var properties = {"name":"dummy", "texture":"res://menus/inventory/item icons/ic
 var is_selected = false
 onready var inventory = get_parent()
 
+func _ready():
+	print(properties)
+	$TextureButton.texture_normal = load(properties["texture"])
+
 func _process(delta):
 	if is_selected:
 		#set position of item to mouse pos
