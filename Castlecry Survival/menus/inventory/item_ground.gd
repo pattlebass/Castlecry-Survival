@@ -1,6 +1,8 @@
 extends StaticBody2D
 
-var properties = {"name":"Pistol", "texture":"res://menus/inventory/item icons/pistol.png", "primary":false, "secondary":true, "scene":"res://assets/weapons/pistol/pistol.tscn", "weapon":true}
+export var properties = {"name":"Pistol", "texture":"", "scene":"", "weapon":false}
 
 func _ready():
+	if properties["scene"]:
+		properties = load(properties["scene"]).instance().properties
 	$Sprite.texture = load(properties["texture"])

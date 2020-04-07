@@ -3,7 +3,7 @@ extends Node2D
 var can_shoot = true
 var bullet_scene = preload("res://assets/weapons/bullet.tscn")
 
-var properties = {
+export var properties = {
 	"name":"",
 	"texture":"",
 	"weapon":true,
@@ -31,6 +31,7 @@ func shoot():
 	var bullet = bullet_scene.instance()
 	bullet.global_position = $Position2D.global_position
 	bullet.rotation = rotation
+	bullet.damage = properties["damage"]
 	global.game.add_child(bullet)
 	yield(get_tree().create_timer(properties["delay"]), "timeout")
 	can_shoot = true

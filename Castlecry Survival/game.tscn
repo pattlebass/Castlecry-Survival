@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/enemies/enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://menus/HUD.gd" type="Script" id=3]
 [ext_resource path="res://game.gd" type="Script" id=4]
 [ext_resource path="res://menus/inventory/inventory.tscn" type="PackedScene" id=5]
@@ -11,6 +12,7 @@
 script = ExtResource( 4 )
 
 [node name="grass" type="Sprite" parent="."]
+visible = false
 position = Vector2( 676.603, 37.6941 )
 texture = ExtResource( 6 )
 region_enabled = true
@@ -56,6 +58,21 @@ current = true
 
 [node name="item_ground" parent="." instance=ExtResource( 7 )]
 position = Vector2( 384.547, 192.915 )
+properties = {
+"name": "Pistol",
+"scene": "res://assets/weapons/pistol/pistol.tscn",
+"texture": "res://menus/inventory/item icons/pistol.png",
+"weapon": true
+}
 
 [node name="item_ground2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 496.517, 173.087 )
+properties = {
+"name": "Tommy gun",
+"scene": "res://assets/weapons/tommy gun/tommy_gun.tscn",
+"texture": "res://menus/inventory/item icons/tommy_gun.png",
+"weapon": true
+}
+
+[node name="enemy" parent="." instance=ExtResource( 2 )]
+position = Vector2( 289.236, 407.952 )

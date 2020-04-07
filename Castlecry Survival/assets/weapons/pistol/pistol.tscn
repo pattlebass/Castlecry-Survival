@@ -1,10 +1,25 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/weapons/pistol/pistol.gd" type="Script" id=1]
+[ext_resource path="res://assets/weapons/gun.gd" type="Script" id=1]
 [ext_resource path="res://assets/weapons/pistol/pistol.png" type="Texture" id=2]
 
 [node name="pistol" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+properties = {
+"automatic": true,
+"damage": 20,
+"damage_dropoff": 5,
+"delay": 0.3,
+"name": "Pistol",
+"primary": false,
+"scene": "res://assets/weapons/pistol/pistol.tscn",
+"secondary": true,
+"texture": "res://menus/inventory/item icons/pistol.png",
+"weapon": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 56, 8 )
